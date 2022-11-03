@@ -1,17 +1,27 @@
 import { FC } from "react"
-import {Navbar} from "../ui"
+import { MobileNavbar, Navbar } from "../ui"
 
 interface Props {
-    children: React.ReactNode
+  children: React.ReactNode
 }
 
-export const MainLayout:FC<Props> = ({children}) => {
+export const MainLayout: FC<Props> = ({ children }) => {
   return (
     <>
+      <nav className="hidden md:block">
         <Navbar />
+      </nav>
+      <nav className="block md:hidden">
+        <MobileNavbar />
+      </nav>
+      <main>
         {
-            children
-        }    
+          children
+        }
+      </main>
+      <footer>
+        <h2>This is the footer</h2>
+      </footer>
     </>
 
   )
